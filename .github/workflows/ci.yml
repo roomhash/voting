@@ -12,13 +12,15 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
       - uses: dtolnay/rust-toolchain@1.93.0
         with:
           targets: wasm32-unknown-unknown
           components: rustfmt, clippy
-      - run: npm run check
-      - run: git diff --exit-code -- dist
+      - name: Verify committed release
+        run: node scripts/check.mjs
+      - name: Build and test from source
+        run: npm run check
