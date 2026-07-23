@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { chmod, copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { createSingleFileTorrent } from './torrent.mjs'
@@ -18,6 +18,7 @@ await mkdir(dist, { recursive: true })
 const wasmSource = new URL('../target/wasm32-unknown-unknown/release/voting.wasm', import.meta.url)
 const wasmTarget = new URL(entry, dist)
 await copyFile(wasmSource, wasmTarget)
+await chmod(wasmTarget, 0o644)
 const wasm = await readFile(wasmTarget)
 const torrent = createSingleFileTorrent({
   contents: wasm,
