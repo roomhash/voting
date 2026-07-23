@@ -1,0 +1,22 @@
+[package]
+name = "voting-roomlet"
+version = "1.1.1"
+edition = "2021"
+license = "MIT"
+description = "A portable, public, peer-to-peer polling Roomlet"
+repository = "https://github.com/roomhash/voting"
+
+[lib]
+name = "voting"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

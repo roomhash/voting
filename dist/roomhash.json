@@ -1,0 +1,36 @@
+{
+  "schema": "roomhash.app/v1",
+  "id": "org.roomhash.voting",
+  "name": "Shared Polls",
+  "description": "Browse and create auditable public polls with creator deletion, hash-deduplicated ballots, and automatic expiry within 14 days.",
+  "i18n": {
+    "en": {
+      "name": "Shared Polls",
+      "description": "Browse and create auditable public polls with creator deletion, hash-deduplicated ballots, and automatic expiry within 14 days.",
+      "notice": "Results are local collection views, not globally consistent totals. Different peers may show different counts until their event sets converge."
+    },
+    "zh-CN": {
+      "name": "共享投票",
+      "description": "浏览或创建公开投票，支持创建者删除、按用户 Hash 排重，并在最长 14 天后自动清理。",
+      "notice": "结果是当前节点的本地收集视图，并非全局强一致统计；在事件集合收敛前，不同参与者看到的票数可能不同。"
+    }
+  },
+  "version": "1.1.1",
+  "runtime": "wasm",
+  "abi": "portable-surface-v1",
+  "entry": "voting.wasm",
+  "sha256": "f88b6cb5ea3a20938cef10a1dcf37ee2bfc175c454d7d8190b1ce3f88885e97d",
+  "permissions": [
+    "channel.messages",
+    "storage:512kb"
+  ],
+  "notice": "Results are local collection views, not globally consistent totals. Different peers may show different counts until their event sets converge.",
+  "distribution": {
+    "torrent": "voting.torrent",
+    "infoHash": "3a19ac865984df82fae0a71ba558c3a49e0e664c",
+    "entrySize": 309531,
+    "webSeed": "https://raw.githubusercontent.com/roomhash/voting/main/dist/voting.wasm",
+    "exactSource": "https://raw.githubusercontent.com/roomhash/voting/main/dist/voting.torrent",
+    "magnet": "magnet:?xt=urn%3Abtih%3A3a19ac865984df82fae0a71ba558c3a49e0e664c&dn=voting.wasm&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fraw.githubusercontent.com%2Froomhash%2Fvoting%2Fmain%2Fdist%2Fvoting.wasm&xs=https%3A%2F%2Fraw.githubusercontent.com%2Froomhash%2Fvoting%2Fmain%2Fdist%2Fvoting.torrent"
+  }
+}
